@@ -131,4 +131,8 @@ class User extends Model implements UserInterface, RemindableInterface {
         return $semestre[0]->id;
     }
 
+    public function name(){
+        return $this->nombre;
+    }
+
 }

@@ -6,7 +6,11 @@
             </li>
 
             <li>
-                <a href="/pasantias"><i class="fa fa-file-text-o"></i><span class="sidebar-text">Pasantías</span></a>
+                <a href="#/portales"><i class="fa fa-columns"></i><span class="sidebar-text">Portales</span></a>
+            </li>
+
+            <li>
+                <a href="#/encargados"><i class="fa fa-user"></i><span class="sidebar-text">Encargados</span></a>
             </li>
     
             {{--@if(isset($current) && $current->estado == 'aceptado')
