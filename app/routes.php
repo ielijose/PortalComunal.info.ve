@@ -27,7 +27,7 @@ Route::group(['before' => 'auth'], function () {
 
 if(!Auth::user())
 Route::get('/', function(){
-	return Redirect::to('login');
+	return Redirect::to('/auth/login');
 });
 
 App::missing(function($exception)
