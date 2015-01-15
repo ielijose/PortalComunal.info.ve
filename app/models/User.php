@@ -23,14 +23,15 @@ class User extends Model implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = ['nombre', 'apellido', 'usuario', 'password', 'correo', 'tipo'];
+	protected $fillable = ['nombre', 'apellido', 'cedula', 'usuario', 'password', 'email', 'tipo'];
 
 	protected static $rules = [
         'nombre' => 'required',
         'apellido' => 'required',
+        'cedula' => 'required',
         'usuario' => 'required|unique:usuarios',
         'password' => 'required',
-        'correo' => 'required|email|unique:usuarios',
+        'email' => 'required|email|unique:usuarios',
     ];
 
     //Use this for custom messages
@@ -39,9 +40,9 @@ class User extends Model implements UserInterface, RemindableInterface {
         'apellido.required' => 'El apellido es obligatorio.',
         'usuario.required' => 'El usuario es obligatorio.',
         'usuario.unique' => 'El usuario ya esta en uso.',
-        'correo.required' => 'El correo es obligatorio.',
-        'correo.email' => 'Formato de correo invalido.',
-        'correo.unique' => 'El correo ya esta en uso.',
+        'email.required' => 'El correo es obligatorio.',
+        'email.email' => 'Formato de correo invalido.',
+        'email.unique' => 'El correo ya esta en uso.',
     ];
 
     public function setPasswordAttribute($value)

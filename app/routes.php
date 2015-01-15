@@ -1,11 +1,20 @@
 <?php
 
-Route::get('login', ['as' => 'login', 'uses' => 'AuthController@showLogin']);
-Route::post('login', ['uses' => 'AuthController@login']);
-Route::post('register', ['uses' => 'UserController@register']);
+Route::get('/auth/login', ['uses' => 'AuthController@showLogin']);
+Route::post('/auth/login', ['uses' => 'AuthController@login']);
+
+Route::get('/auth/register', ['uses' => 'AuthController@showRegister']);
+Route::post('/auth/register', ['uses' => 'AuthController@register']);
+
+Route::get('/auth/forgot', ['uses' => 'AuthController@showForgot']);
+Route::post('/auth/forgot', ['uses' => 'RemindersController@postRemind']);
+
+Route::get('/auth/forgot/{token}', ['uses' => 'RemindersController@getReset']);
+Route::post('/auth/forgot/reset', ['uses' => 'RemindersController@postReset']);
+
 Route::get('logout', ['uses' => 'AuthController@logout']);
 
-Route::post('forgot', ['uses' => 'AuthController@forgot']);
+
 
 
 // Paneles

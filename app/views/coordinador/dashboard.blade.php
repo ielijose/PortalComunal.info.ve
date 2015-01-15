@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="stat-num">{{ $data['total'] }}</div>
-                                <a href="/pasantias/total"><h3>Pasantías &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3></a>
+                                <a href="/pasantias/total"><h3>Pasantías</h3></a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="panel panel-default">
 
                 <div class="panel-body">

@@ -18,11 +18,13 @@ class CreateUsuariosTable extends Migration {
 
 			$table->string('nombre');
 			$table->string('apellido');
+			$table->string('cedula');
 			$table->string('usuario');
+			$table->string('email');
             $table->string('password');
-            $table->string('correo');
             
-            $table->enum('tipo', ['estudiante', 'secretaria', 'coordinador']);
+            
+            $table->enum('tipo', ['usuario', 'encargado', 'coordinador']);
             $table->string('remember_token')->nullable();
 
 			$table->timestamps();

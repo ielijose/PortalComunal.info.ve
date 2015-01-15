@@ -4751,7 +4751,7 @@ body.login {
     -moz-border-radius: 3px;
     border-radius: 3px;
     padding-bottom: 20px;
-    margin-top: 0px;
+    margin-top: 40px;
 }
 .login-logo {
     text-align: center;
@@ -5760,3 +5760,5 @@ a.note-item:hover {
 .fselect .ui-radio{
    margin: 0 !important;
 }
+
+

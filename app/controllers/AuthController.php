@@ -4,7 +4,11 @@ class AuthController extends BaseController {
 
 	public function showLogin()
 	{
-		return View::make('login');
+		if(Auth::user()){
+			return Redirect::to('panel');
+		}else{
+			return View::make('login');
+		}		
 	}
 
 	public function login()
@@ -35,7 +39,7 @@ class AuthController extends BaseController {
 			{
 				return Redirect::to('/');
 			}
-			return Redirect::to('login')
+			return Redirect::to('/auth/login')
 				->with('message', 'Tus datos son incorrectos')
 				->withInput();
 
@@ -46,7 +50,43 @@ class AuthController extends BaseController {
 	public function logout()
 	{
 		Auth::logout();
-		return Redirect::route('login');
+		return Redirect::to('/auth/login');
+	}
+
+
+
+	
+	public function showRegister()
+	{
+		if(Auth::user()){
+			return Redirect::to('panel');
+		}else{
+			return View::make('register');
+		}		
+	}
+
+	public function showForgot()
+	{
+		if(Auth::user()){
+			return Redirect::to('panel');
+		}else{
+			return View::make('forgot');
+		}		
+	}	
+
+	
+	public function register()
+	{
+		$user = new User(Input::all());
+		//$user->tipo = 'secretaria';
+		if ($user->save())
+		{
+			Auth::loginUsingId($user->id);
+
+			return Redirect::to('/');
+		}
+		return Redirect::back()->withInput()->withErrors($user->getErrors());
+		
 	}
 
 }
