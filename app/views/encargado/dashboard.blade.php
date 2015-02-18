@@ -1,63 +1,104 @@
-@extends('secretaria.layouts.master')
+@extends('layouts.master')
 
 @section('css')
 
 <link href="assets/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
 <link href="assets/plugins/metrojs/metrojs.css" rel="stylesheet">
 
+<link rel="stylesheet" href="/assets/plugins/magnific/magnific-popup.css">
+<style>
+    .qrcode {
+      width:128px;
+      height:128px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    a.url{
+        text-shadow: 0 0 2px #999;
+        font-size:20px;
+    }
+    .col-centered{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+</style>
 @stop
 
 @section('content')
 
 <div id="main-content" class="dashboard">
+    @include('layouts.alert')
 
+    @if(Auth::user()->hasPortal())
+    <?php $portal = Auth::user()->portal; ?>
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="panel forum-category">
-                <div class="panel-heading no-bd bg-dark">
-                    <h3 class="panel-title">Procesos</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul>
-                                <li>Aprobación<span class="pull-right badge badge-dark"> {{ $step[1] or '0' }} </span></li>
-                                <li>Entrega de carta<span class="pull-right badge badge-dark"> {{ $step[2] or '0' }} </span></li>
-                                <li>Entrega borrador<span class="pull-right badge badge-dark"> {{ $step[3] or '0' }} </span></li>
-                                <li>Retiro borrador<span class="pull-right badge badge-dark"> {{ $step[4] or '0' }} </span></li>
-                                <li>Entrega Final<span class="pull-right badge badge-dark"> {{ $step[5] or '0' }} </span></li>
-                                <li></li>
-                                <li>Total<span class="pull-right badge badge-dark"> {{ $step['total'] or '0' }} </span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="col-md-12">
             <div class="panel panel-default">
-
+                <div class="panel-heading bg-blue">
+                    <h3 class="panel-title"><strong>Mi portal</strong></h3>
+                </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-sm-12 ">
-                                    <div id="chart" style="height: 240px; width:100%;">
+                        <div class="col-md-12 col-sm-12 col-xs-12 table-responsive table-blue filter-right">
+
+                            <div class="row article landing">
+                                <div class="col-md-3">
+                                    <div class="thumbnail">
+                                        <div class="overlay">
+                                            <div class="thumbnail-actions">
+                                                <a href="/assets/img/landing.jpg" class="btn btn-default btn-icon btn-rounded magnific" title="Mi portal"><i class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <img src="/assets/img/landing.jpg" alt="/animal" class="img-responsive">
+                                    </div>    
+                                </div>
+                                <div class="col-md-6">
+                                    <h3><a href="#">{{ $portal->consejo_comunal }}</a></h3>
+                                    <div class="search-info">
+                                        {{--<span class="search-date"><i class="fa fa-rocket"></i>Inactiva</span>--}}
                                     </div>
-                                    <br><br><br><br><br><br>
+                                    <p><br>
+                                        <a class="url" target="_blank" data-qr="qr-landing" href="{{url()}}/{{ $portal->subdominio }}">{{url()}}/{{ $portal->subdominio }}</a>
+                                    </p>                                    
+                                </div>
+
+                                <div class="col col-md-3 col-centered">
+                                    <div id="qr-landing" class="qrcode"></div>   
+                                    <div><a class="btn btn-info m-t-10" href="/editar-portal"><i class="fa fa-edit"></i> Editar</a></div>
+                                    <div><a class="btn btn-danger m-t-10 delete" href="/eliminar-portal"><i class="fa fa-trash-o"></i> Eliminar</a></div>                         
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        
     </div>
+
+    @else
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                            <h2>Hola {{ Auth::user()->name() }}! Bienvenido a PortalComunal.info.ve.</h2>
+                        </div>                  
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @endif
+
 
 </div>
 
@@ -74,39 +115,32 @@
 <script src="assets/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 <script src="assets/js/calendar.js"></script>
 <script src="assets/js/dashboard.js"></script>
-
-<script src="assets/plugins/visible/jquery.visible.js"></script>
-<script src="assets/plugins/charts-d3/d3.v3.js"></script>
-<script src="assets/plugins/charts-d3/nv.d3.js"></script>
-<script src="assets/plugins/charts-flot/jquery.flot.js"></script>
-<script src="assets/plugins/charts-flot/jquery.flot.animator.min.js"></script>
-<script src="assets/plugins/charts-flot/jquery.flot.resize.js"></script>
-<script src="assets/plugins/charts-circliful/js/jquery.circliful.min.js"></script>
-<script src="assets/plugins/charts-morris/raphael.min.js"></script>
-<script src="assets/plugins/charts-morris/morris.min.js"></script>
+<script src="/assets/plugins/magnific/jquery.magnific-popup.min.js"></script>
 
 
+<script src="/assets/plugins/qrcode/qrcode.min.js"></script>
 <script>
-$(document).on("ready", function(){
+    $(document).on("ready", function(){
+        
+        $.each($("a.url"), function(index, el) {
+            var qrcode = new QRCode($(this).data('qr'), {
+                text: $(this).text(),
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
 
-    Morris.Bar({
-        element: 'chart',
-        data: [
-        { y: 'Pasantías', 
-        ap: {{ $step[1] or '0' }}, 
-        ec: {{ $step[2] or '0' }}, 
-        eb: {{ $step[3] or '0' }}, 
-        rb: {{ $step[4] or '0' }}, 
-        ef: {{ $step[5] or '0' }} },
-        ],
-        xkey: 'y',
-        ykeys: ['ap', 'ec', 'eb', 'rb', 'ef'],
-        labels: ['Aprobación', 'Entrega de carta', 'Entrega borrador', 'Retiro borrador', 'Entrega Final']
-    });
+        $(".delete").on("click", function(event){
+            event.preventDefault();
 
-    
-})
-
+            if(confirm("Desea eliminar el portal? \nNo se puede revertir.")){
+                location.href = $(this).attr('href');
+            }
+        })
+    })
 </script>
 
 @stop

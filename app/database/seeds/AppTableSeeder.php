@@ -10,7 +10,8 @@ class AppTableSeeder extends Seeder {
 			'cedula' => 21382657,
 			'usuario' => "ielijose",
 			'password' => "2512",
-			'email' => "ielijose@gmail.com"
+			'email' => "ielijose@gmail.com",
+			'tipo' => 'encargado'
 			));
 	}
 

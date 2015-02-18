@@ -114,15 +114,15 @@ class User extends Model implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
-	public function estudiante()
+	/* -------------------------------------- */
+	public function hasPortal()
     {
-        return $this->hasOne('Estudiante', 'usuario_id', 'id');
+        return !!count(Portal::current()->get());
     }
 
-    public function getSemestre()
+    public function portal()
     {
-        $semestre = Semestre::where('activo', '=', 1)->limit(1)->get();
-        return $semestre[0]->semestre;
+        return $this->hasOne('Portal', 'usuario_id', 'id');
     }
 
     public function getSemestreId()

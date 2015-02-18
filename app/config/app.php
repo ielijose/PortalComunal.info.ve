@@ -125,7 +125,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Thujohn\Pdf\PdfServiceProvider',
-		'Ielijose\HeywireLaravel\HeywireLaravelServiceProvider',
+		//'Ielijose\HeywireLaravel\HeywireLaravelServiceProvider',
 
 	),
 
@@ -195,7 +195,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Model' 		  => 'Way\Database\Model',
 		'PDF' => 'Thujohn\Pdf\PdfFacade',
-		'Heywire'          => 'Ielijose\HeywireLaravel\Heywire',
+		//'Heywire'          => 'Ielijose\HeywireLaravel\Heywire',
 
 	),
 

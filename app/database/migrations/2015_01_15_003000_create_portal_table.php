@@ -21,7 +21,8 @@ class CreatePortalTable extends Migration {
 
 			$table->string('consejo_comunal');
 			$table->string('subdominio');
-			$table->string('codigo');
+			$table->string('logo');
+			$table->string('direccion');
       
 			$table->timestamps();
 		});

@@ -14,9 +14,6 @@ Route::post('/auth/forgot/reset', ['uses' => 'RemindersController@postReset']);
 
 Route::get('logout', ['uses' => 'AuthController@logout']);
 
-
-
-
 // Paneles
 Route::group(['before' => 'auth'], function () {
 
@@ -24,6 +21,9 @@ Route::group(['before' => 'auth'], function () {
     require (__DIR__ . '/routes/' . Auth::user()->tipo . '.php');
 
 });
+
+Route::get('{cc}/{page?}', ['uses' => 'HomeController@cc']);
+
 
 if(!Auth::user())
 Route::get('/', function(){
@@ -34,3 +34,4 @@ App::missing(function($exception)
 {
     //return Redirect::to('login');
 });
+

@@ -24,7 +24,7 @@ class CreateUsuariosTable extends Migration {
             $table->string('password');
             
             
-            $table->enum('tipo', ['usuario', 'encargado', 'coordinador']);
+            $table->enum('tipo', ['usuario', 'encargado', 'coordinador'])->default('encargado');
             $table->string('remember_token')->nullable();
 
 			$table->timestamps();

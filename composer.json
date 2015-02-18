@@ -10,7 +10,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"webpatser/laravel-uuid": "dev-master",
-		"ielijose/heywire-laravel": "dev-master",
+		"ielijose/heywire": "dev-master",
 		"way/database": "dev-master",
 		"thujohn/pdf": "dev-master"
 	},
