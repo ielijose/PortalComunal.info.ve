@@ -5,13 +5,23 @@ class AppTableSeeder extends Seeder {
 	public function run()
 	{
 		User::create(array(
-			'nombre' => "Eli js",		
-			'apellido' => "Carrasnode",		
-			'cedula' => 21382657,
-			'usuario' => "ielijose",
-			'password' => "2512",
-			'email' => "ielijose@gmail.com",
+			'nombre' => "Isaias",		
+			'apellido' => "Taborda",		
+			'cedula' => 2,
+			'usuario' => "isaias",
+			'password' => "1234",
+			'email' => "isaias@gmail.com",
 			'tipo' => 'encargado'
+			));
+
+		User::create(array(
+			'nombre' => "Coordinador",		
+			'apellido' => "C.",		
+			'cedula' => 1,
+			'usuario' => "coordinador",
+			'password' => "1234",
+			'email' => "coordinador@gmail.com",
+			'tipo' => 'coordinador'
 			));
 	}
 
