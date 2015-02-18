@@ -9,11 +9,11 @@
                 <a href="/mi-consejo-comunal"><i class="fa fa-columns"></i><span class="sidebar-text">Mi Consejo Comunal</span></a>
             </li>
 
-            <li>
+            {{--<li>
                 <a href="/preguntas"><i class="fa fa-question"></i><span class="sidebar-text">Preguntas</span></a>
             </li>
     
-            {{--@if(isset($current) && $current->estado == 'aceptado')
+            @if(isset($current) && $current->estado == 'aceptado')
             <li>
                 <a href="/documentos"><i class="fa fa-folder"></i><span class="sidebar-text">Documentos</span></a>
             </li>

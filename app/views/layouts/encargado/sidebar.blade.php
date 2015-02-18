@@ -30,9 +30,9 @@
                 <a href="/proyectos"><i class="fa fa-road"></i><span class="sidebar-text">Proyectos</span></a>
             </li>
 
-            <li class="<?= Request::is('*faq*') ? 'current' : '' ?>">
+           {{-- <li class="<?= Request::is('*faq*') ? 'current' : '' ?>">
                 <a href="/faq"><i class="fa fa-question"></i><span class="sidebar-text">Preguntas</span></a>
-            </li>
+            </li>--}}
 
 
             <li class="<?= Request::is('*miembros*') ? 'current' : '' ?>">
