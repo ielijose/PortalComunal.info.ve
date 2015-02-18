@@ -45,7 +45,7 @@
                             
                             @if(!Auth::user())
                             <li><a href="/auth/login">Acceder</a></li>
-                            <li><a href="/auth/register">Registrarse</a></li>
+                            <li><a href="/{{ $portal->subdominio }}/registro">Registrarse</a></li>
                             @else
                             
                             <li><a href="/">{{Auth::user()->nombre}} {{Auth::user()->apellido}}</a></li>

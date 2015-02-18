@@ -6,11 +6,11 @@
             </li>
 
             <li>
-                <a href="#/portales"><i class="fa fa-columns"></i><span class="sidebar-text">Portales</span></a>
+                <a href="/mi-consejo-comunal"><i class="fa fa-columns"></i><span class="sidebar-text">Mi Consejo Comunal</span></a>
             </li>
 
             <li>
-                <a href="#/encargados"><i class="fa fa-user"></i><span class="sidebar-text">Encargados</span></a>
+                <a href="/preguntas"><i class="fa fa-question"></i><span class="sidebar-text">Preguntas</span></a>
             </li>
     
             {{--@if(isset($current) && $current->estado == 'aceptado')

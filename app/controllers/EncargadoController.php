@@ -126,4 +126,14 @@ class EncargadoController extends BaseController {
 		return View::make('encargado.faq');
 	}
 
+
+	public function miembros()
+	{	
+		$miembros = User::where('portal_id', Auth::user()->portal->id)->get();
+		
+		return View::make('encargado.miembros', ['miembros' => $miembros]);
+	}
+
+	
+
 }

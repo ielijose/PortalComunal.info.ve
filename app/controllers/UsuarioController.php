@@ -7,9 +7,10 @@ class UsuarioController extends BaseController {
 		return View::make('usuario.dashboard');
 	}
 
-	public function registrarPasantia()
+	public function portal()
 	{
-		return View::make('usuario.registrar-pasantia');
+		$portal = Portal::find(Auth::user()->portal_id);
+		return View::make('usuario.portal', ['portal' => $portal]);
 	}
 
 	public function registrar()

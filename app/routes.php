@@ -5,6 +5,7 @@ Route::post('/auth/login', ['uses' => 'AuthController@login']);
 
 Route::get('/auth/register', ['uses' => 'AuthController@showRegister']);
 Route::post('/auth/register', ['uses' => 'AuthController@register']);
+Route::post('/auth/register/portal', ['uses' => 'AuthController@registerPortal']);
 
 Route::get('/auth/forgot', ['uses' => 'AuthController@showForgot']);
 Route::post('/auth/forgot', ['uses' => 'RemindersController@postRemind']);

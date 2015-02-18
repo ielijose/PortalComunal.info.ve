@@ -89,4 +89,22 @@ class AuthController extends BaseController {
 		
 	}
 
+
+	public function registerPortal()
+	{
+		$user = new User(Input::all());
+		$user->tipo = 'usuario';
+		//$user->tipo = 'secretaria';
+		if ($user->save())
+		{
+			Auth::loginUsingId($user->id);
+
+			return Redirect::to('/');
+		}
+		return Redirect::back()->withInput()->withErrors($user->getErrors());
+		
+	}
+
+	
+
 }

@@ -23,7 +23,7 @@ class User extends Model implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = ['nombre', 'apellido', 'cedula', 'usuario', 'password', 'email', 'tipo'];
+	protected $fillable = ['nombre', 'apellido', 'cedula', 'usuario', 'password', 'email', 'tipo', 'portal_id'];
 
 	protected static $rules = [
         'nombre' => 'required',

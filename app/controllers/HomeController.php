@@ -35,6 +35,12 @@ class HomeController extends BaseController {
 			case 'proyectos':
 				return $this->proyectos($portal->id);
 				break;
+
+			case 'registro':
+				return $this->registro($portal->id);
+				break;
+
+				
 			
 			default:
 				return $this->index($portal->id);
@@ -95,6 +101,13 @@ class HomeController extends BaseController {
 		$p = (count($proyectos)>0) ? $proyectos->value : '';
 
 		return View::make('frontend.proyectos', ['portal' => $portal, 'proyectos' => $p]);
+	}
+
+
+	public function registro($id)
+	{
+		$portal = Portal::find($id);
+		return View::make('frontend.register', ['portal' => $portal]);
 	}
 
 }

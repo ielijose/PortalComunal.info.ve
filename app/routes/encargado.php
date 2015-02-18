@@ -22,5 +22,7 @@ if(!Auth::user()->hasPortal()){
 	Route::get('/directiva', ['uses' => 'EncargadoController@directiva']);
 	Route::get('/proyectos', ['uses' => 'EncargadoController@proyectos']);
 	Route::get('/faq', ['uses' => 'EncargadoController@faq']);
+
+	Route::get('/miembros', ['uses' => 'EncargadoController@miembros']);
 	
 }

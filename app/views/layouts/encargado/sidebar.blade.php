@@ -34,6 +34,11 @@
                 <a href="/faq"><i class="fa fa-question"></i><span class="sidebar-text">Preguntas</span></a>
             </li>
 
+
+            <li class="<?= Request::is('*miembros*') ? 'current' : '' ?>">
+                <a href="/miembros"><i class="fa fa-user"></i><span class="sidebar-text">Miembros</span></a>
+            </li>
+
             @endif
            
             <br>
